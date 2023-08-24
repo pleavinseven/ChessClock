@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ChessClock</string>
+    <string name="pause_button_desc">pause</string>
+    <string name="refresh_button_desc">refresh</string>
+</resources>
