@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.chessclock'
+    namespace 'com.pleavinseven.chessclock'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.chessclock"
+        applicationId "com.pleavinseven.chessclock"
         minSdk 24
         targetSdk 33
         versionCode 1

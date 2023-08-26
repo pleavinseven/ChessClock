@@ -1,4 +1,4 @@
-package com.example.chessclock.ui.theme
+package com.pleavinseven.chessclock.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

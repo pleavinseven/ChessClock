@@ -1,4 +1,4 @@
-package com.example.chessclock
+package com.pleavinseven.chessclock
 
 import androidx.lifecycle.ViewModel
 

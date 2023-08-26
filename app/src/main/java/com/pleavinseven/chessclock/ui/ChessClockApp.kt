@@ -1,4 +1,4 @@
-package com.example.chessclock.ui
+package com.pleavinseven.chessclock.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,8 +21,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.chessclock.ConsoleViewModel
-import com.example.chessclock.R
+import com.pleavinseven.chessclock.ConsoleViewModel
+import com.pleavinseven.chessclock.R
 
 val consoleViewModel = ConsoleViewModel()
 
@@ -40,7 +40,6 @@ fun ChessClockApp() {
 
 @Composable
 private fun Player(
-//    color: Color,
     roundedCornerShape: RoundedCornerShape,
     modifier: Modifier
 ) {
@@ -52,7 +51,6 @@ private fun Player(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-//                .background(color)
         ) {
 
         }
