@@ -1,5 +1,6 @@
 package com.pleavinseven.chessclock.ui
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,14 +15,19 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme.typography
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.pleavinseven.chessclock.ConsoleViewModel
+import com.pleavinseven.chessclock.MainViewModel
+import com.pleavinseven.chessclock.Player
 import com.pleavinseven.chessclock.R
 
 val viewModel = MainViewModel()
@@ -32,27 +38,50 @@ fun ChessClockApp() {
         modifier = Modifier
             .fillMaxSize()
     ) {
-        Player( RoundedCornerShape(0.dp, 0.dp, 25.dp, 25.dp), Modifier.weight(1f))
+        PlayerCard(
+            RoundedCornerShape(0.dp, 0.dp, 25.dp, 25.dp),
+            Modifier.weight(1f),
+            Player(),
+            viewModel.formattedTime,
+            flip = true
+        )
         CenterConsole(Modifier.weight(0.2f))
-        Player( RoundedCornerShape(25.dp, 25.dp, 0.dp, 0.dp), Modifier.weight(1f))
+        PlayerCard(
+            RoundedCornerShape(25.dp, 25.dp, 0.dp, 0.dp),
+            Modifier.weight(1f),
+            Player(),
+            viewModel.formattedTime
+        )
     }
 }
 
 @Composable
-private fun Player(
+private fun PlayerCard(
     roundedCornerShape: RoundedCornerShape,
-    modifier: Modifier
+    modifier: Modifier,
+    player: Player,
+    formattedTime: String,
+    flip: Boolean = false
 ) {
     Card(
         elevation = CardDefaults.cardElevation(10.dp),
         shape = roundedCornerShape,
         modifier = modifier
+            .clickable {
+                viewModel.onPlayerClick(player)
+            }
     ) {
         Box(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center
         ) {
-
+            Text(
+                modifier = (if (flip) Modifier.rotate(180f) else Modifier),
+                text = formattedTime,
+                textAlign = TextAlign.Center,
+                style = typography.displayLarge
+            )
         }
     }
 }
