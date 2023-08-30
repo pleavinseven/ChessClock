@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import com.pleavinseven.chessclock.ConsoleViewModel
 import com.pleavinseven.chessclock.R
 
-val consoleViewModel = ConsoleViewModel()
+val viewModel = MainViewModel()
 
 @Composable
 fun ChessClockApp() {
@@ -71,12 +71,12 @@ private fun CenterConsole(
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             CenterButton(
-                { consoleViewModel.onClickPause() },
+                { viewModel.onClickPause() },
                 Icons.Rounded.Pause,
                 stringResource(R.string.pause_button_desc)
             )
             CenterButton(
-                { consoleViewModel.onClickRefresh() },
+                { viewModel.onClickRefresh() },
                 Icons.Rounded.Refresh,
                 stringResource(R.string.refresh_button_desc)
             )
